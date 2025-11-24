@@ -33,11 +33,12 @@
                :loading false)))))
 
 
-(defn todos-list []
-  (let [{:keys [todos loading error]} @app-state]
-    [:div
-     (when loading
-       [:p "Carregando..."])
+(defn todo-list []
+  [:ul.todo-list
+   (for [todo (:todos @app-state)]
+     ^{:key (:todos/id todo)} ;; <-- CORRIGIDO
+     [:li.todo-item
+      (:todos/title todo)])]) ;; <-- CORRIGIDO
 
      (when error
        [:p {:style {:color "red"}}
