@@ -1,0 +1,21 @@
+{
+ :deps true
+
+ :builds
+ {:app
+  {;; O destino é o navegador
+   :target :browser
+
+   ;; Onde o JS compilado será salvo
+   :output-dir "resources/public/js"
+
+   ;; Caminho usado pelo navegador
+   :asset-path "/js"
+
+   ;; Ponto de entrada do código
+   :modules {:main {:init-fn todo.frontend.core/init}}
+
+   ;; Configurações do servidor de desenvolvimento
+   :devtools {:http-root "resources/public"
+              :http-port 8000}}}
+}
